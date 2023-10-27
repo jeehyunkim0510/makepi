@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path, include
 
-from accountapp.views import hello_world, AccountCreateView
+from accountapp.views import hello_world, AccountCreateView, AccountDetailView
 
 app_name = "accountapp"
 
@@ -11,5 +11,6 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),
     path('hello_world/', hello_world, name='hello_world'),
     path('create/', AccountCreateView.as_view(), name='create'),
+    path('detail/<int:pk>', AccountDetailView.as_view(), name='detail'),
 
 ]
