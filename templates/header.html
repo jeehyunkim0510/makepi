@@ -2,24 +2,26 @@
         <div>
             <h1 class="makepi_logo">makepi</h1>
         </div>
-        <div>
-              <a href="{% url 'articleapp:list' %}">
+        <div class="makepi_header_navbar">
+            <a href="{% url 'articleapp:list' %}" class="makepi_header_nav">
                 <span>Article</span>
             </a>
-            <span>nav2</span>
+            <a href="{% url 'projectapp:list' %}" class="makepi_header_nav">
+                <span>Project</span>
+            </a>
             <span>nav3</span>
             {% if not user.is_authenticated %}
-            <a href="{% url 'accountapp:login' %}?next={{ request.path }}">
+            <a href="{% url 'accountapp:login' %}?next={{ request.path }}" class="makepi_header_nav">
                 <span>login</span>
             </a>
-              <a href="{% url 'accountapp:create' %}">
+              <a href="{% url 'accountapp:create' %}" class="makepi_header_nav">
                 <span>SignUp</span>
             </a>
             {% else %}
-            <a href="{% url 'accountapp:detail' pk=user.pk %}">
+            <a href="{% url 'accountapp:detail' pk=user.pk %}" class="makepi_header_nav">
                 <sapn>Mypage</sapn>
             </a>
-            <a href="{% url 'accountapp:logout' %}?next={{ request.path }}">
+            <a href="{% url 'accountapp:logout' %}?next={{ request.path }}" class="makepi_header_nav">
                 <sapn>logout</sapn>
             </a>
             {% endif %}
